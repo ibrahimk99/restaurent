@@ -7,7 +7,7 @@ import { NextResponse } from "next/server"
 export async function GET(req,{params}){
     const {id} =await params
     await mongoose.connect(connectionStr)
-    let restaurentDetails = await Restaurent.findOne({_id:id})
-    let foodItems = await Food.find({resto_id:id})
-    return NextResponse.json({restaurentDetails,foodItems ,success:true})
+    let restaurentDetail= await Restaurent.findOne({_id:id})
+    let foodItem = await Food.find({resto_id:id})
+    return NextResponse.json({restaurentDetail,foodItem ,success:true})
 }
